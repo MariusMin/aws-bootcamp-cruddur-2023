@@ -40,7 +40,7 @@ tasks:
 [Image of the Alarm Configuration](asets/alarmconfig.png)
 
 ### created Budget from CLI 
-[Image of the budget](asets/budgetaws.png)
+[Image of the budget](asets/budgedaws.png)
 
 
 
