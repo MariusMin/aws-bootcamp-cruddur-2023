@@ -40,6 +40,7 @@ tasks:
 [Image of the Alarm Configuration](asets/alarmconfig.png)
 
 ### created Budget from CLI 
+Have set a budget of 19$ just I know that i will go definetly over 15. I use S3 for storing of some items there.
 [Image of the budget](asets/budgedaws.png)
 
 
