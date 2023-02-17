@@ -35,3 +35,5 @@ tasks:
    ```
    So we did also setup billing allarms and notifications as instructed. Strange that same evening i received an allert about 1$ bill. But signed into console and i saw that predicted bill for now said $1.32. Went there and also deleted some old notifications, old billing alarms on the same note did some cleanup of not needed S3 buckets.
    
+### create a Billing Alarm
+[](journal/assets/alarm config.png
