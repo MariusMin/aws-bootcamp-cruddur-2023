@@ -46,5 +46,5 @@ Have set a budget of 19$ just I know that i will go definetly over 15. I use S3 
 
 
 ### Logical Architecture
-
+[Logical Architecture from lucid charts](asets/lucid-chart.png)
 ### Napkin design
