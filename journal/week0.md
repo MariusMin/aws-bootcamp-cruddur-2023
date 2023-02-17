@@ -37,10 +37,10 @@ tasks:
    
 ### create a Billing Alarm
 
-[Image of the Alarm Configuration](assets/alarmconfig.png)
+[Image of the Alarm Configuration](asets/alarmconfig.png)
 
 ### created Budget from CLI 
-[Image of the budget](assets/budgetaws.png)
+[Image of the budget](asets/budgetaws.png)
 
 
 
