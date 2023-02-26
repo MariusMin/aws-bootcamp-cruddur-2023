@@ -30,6 +30,11 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 #end of honeycomb
 app = Flask(__name__)
+#honeycomb
+# Initialize automatic instrumentation with Flask
+FlaskInstrumentor().instrument_app(app)
+RequestsInstrumentor().instrument() 
+##sasas
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
