@@ -33,12 +33,12 @@ import logging
 from time import strftime
 
 # Configuring logger to use cloudwatch
-LOGGER = logging.getLogger(_name_)
-LOGGER.setLevel(logging.DEBUG)
-console_handler = logging.StreamHandler(Log_group='cruddur')
-LOGGER.addHandler(console_handler)
-LOGGER.addHandler(cw_handler)
-LOGGER.info("test kig")
+#LOGGER = logging.getLogger(_name_)
+#LOGGER.setLevel(logging.DEBUG)
+#console_handler = logging.StreamHandler(Log_group='cruddur')
+#LOGGER.addHandler(console_handler)
+###LOGGER.addHandler(cw_handler)
+#LOGGER.info("test kig")
 
 #honeycomb
 # Initialize tracing and an exporter that can send data to Honeycomb
@@ -109,7 +109,7 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
-def data_home(logger: LOGGER):
+def data_home():
   data = HomeActivities.run()
   return data, 200
 
