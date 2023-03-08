@@ -4,7 +4,8 @@ import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
 
 // [TODO] Authenication
-import { Auth } from 'aws-amplify';
+//import { Auth } from 'aws-amplify';
+import Cookies from 'js-cookie'
 
 export default function SigninPage() {
 
@@ -12,30 +13,23 @@ export default function SigninPage() {
   const [password, setPassword] = React.useState('');
   const [errors, setErrors] = React.useState('');
 
-  const onsubmit = async (event) => {
-    setErrors('')
-    event.preventDefault();
-    try {
-      Auth.signIn(username, password)
-        .then(user => {
-          localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
-          window.location.href = "/"
-        })
-        .catch(err => { console.log('Error!', err) });
-    } catch (error) {
-      if (error.code == 'UserNotConfirmedException') {
-        window.location.href = "/confirm"
-      }
-      setErrors('')
-
-    }
-    return false
+ const onsubmit = async (event) => {
+  event.preventDefault();
+  setErrors('')
+  console.log('onsubmit')
+  if (Cookies.get('user.email') === email && Cookies.get('user.password') === password){
+    Cookies.set('user.logged_in', true)
+    window.location.href = "/"
+  } else {
+    setErrors("Email and password is incorrect or account doesn't exist")
   }
+  return false
+}
   
-  let errors;
-  if (cognitoErrors){
-    errors = <div className='errors'>{cognitoErrors}</div>;
-  }
+let el_errors;
+if (errors){
+  el_errors = <div className='errors'>{errors}</div>;
+}
 
 
   const email_onchange = (event) => {
