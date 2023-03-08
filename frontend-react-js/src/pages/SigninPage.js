@@ -39,10 +39,10 @@ if (errors){
     setPassword(event.target.value);
   }
 
-  let el_errors;
-  if (errors){
-    el_errors = <div className='errors'>{errors}</div>;
-  }
+  //let el_errors;
+ //if (errors){
+  //  el_errors = <div className='errors'>{errors}</div>;
+  //}
 
   return (
     <article className="signin-article">

@@ -139,6 +139,7 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
+@xray_recorder.capture('activities_home')
 def data_home():
   data = HomeActivities.run(logger=LOGGER)
   return data, 200
@@ -158,6 +159,7 @@ def data_handle(handle):
     return model['data'], 200
 
 @app.route("/api/activities/search", methods=['GET'])
+@xray_recorder.capture('activities_users')
 def data_search():
   term = request.args.get('term')
   model = SearchActivities.run(term)
@@ -181,6 +183,7 @@ def data_activities():
   return
 
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
+@xray_recorder.capture('activities_home')
 def data_show_activity(activity_uuid):
   data = ShowActivity.run(activity_uuid=activity_uuid)
   return data, 200
