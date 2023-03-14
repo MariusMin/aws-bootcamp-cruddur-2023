@@ -13,7 +13,8 @@ services:
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
       ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
-
+      AWS_COGNITO_USER_POOL_ID: "eu-central-1_2NTlEEUQH"
+      AWS_COGNITO_USER_POOL_CLIENT_ID: "177rta05qkbievgfjo0vvmluko"   
     build: ./backend-flask
     ports:
       - "4567:4567"
@@ -73,6 +74,6 @@ networks:
     driver: bridge
     name: cruddur
 
-volumes:
-  db:
-    driver: local   
+#volumes:
+  #db:
+ #   driver: local   
