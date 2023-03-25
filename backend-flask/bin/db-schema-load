@@ -1,6 +1,18 @@
 #! /usr/bin/bash
 
-schema_path = $(realpath .)
+echo $0
 
 echo "db-schema-load"
-psql $CONNECTION_URL cruddur < db/schema.sql
+
+
+schema_path="$(realpath .)/db/schema.sql"
+
+echo $schema_path
+
+if ["$env" = "prod" ]; then
+    echo "This is production environment"
+else
+    echo "This is NOT production environment"
+
+
+psql $CONNECTION_URL cruddur < $schema_path
