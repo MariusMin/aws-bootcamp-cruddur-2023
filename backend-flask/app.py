@@ -16,7 +16,7 @@ from services.create_message import *
 from services.show_activity import *
 
 from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVerifyError
-from lib.momento import MomentoCounter
+#from lib.momento import MomentoCounter
 
 # HoneyComb ---------
 from opentelemetry import trace
