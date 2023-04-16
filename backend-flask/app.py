@@ -1,3 +1,36 @@
+Skip to content
+Search or jump to…
+Pulls
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@MariusMin 
+omenking
+/
+aws-bootcamp-cruddur-2023
+Public
+generated from ExamProCo/aws-bootcamp-cruddur-2023
+Fork your own copy of omenking/aws-bootcamp-cruddur-2023
+Code
+Issues
+2
+Pull requests
+8
+Actions
+Projects
+Security
+Insights
+aws-bootcamp-cruddur-2023/backend-flask/app.py /
+@omenking
+omenking we have a query working
+Latest commit 26018e9 on Mar 11
+ History
+ 1 contributor
+238 lines (204 sloc)  7.35 KB
+ 
+
 from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
@@ -16,7 +49,6 @@ from services.create_message import *
 from services.show_activity import *
 
 from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVerifyError
-#from lib.momento import MomentoCounter
 
 # HoneyComb ---------
 from opentelemetry import trace
@@ -78,7 +110,7 @@ cognito_jwt_token = CognitoJwtToken(
 )
 
 # X-RAY ----------
-XRayMiddleware(app, xray_recorder)
+#XRayMiddleware(app, xray_recorder)
 
 # HoneyComb ---------
 # Initialize automatic instrumentation with Flask
@@ -163,7 +195,7 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
-@xray_recorder.capture('activities_home')
+#@xray_recorder.capture('activities_home')
 def data_home():
   access_token = extract_access_token(request.headers)
   try:
@@ -186,7 +218,7 @@ def data_notifications():
   return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
-@xray_recorder.capture('activities_users')
+#@xray_recorder.capture('activities_users')
 def data_handle(handle):
   model = UserActivities.run(handle)
   if model['errors'] is not None:
@@ -237,3 +269,18 @@ def data_activities_reply(activity_uuid):
 
 if __name__ == "__main__":
   app.run(debug=True)
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+aws-bootcamp-cruddur-2023/app.py at week-4-again · omenking/aws-bootcamp-cruddur-2023
